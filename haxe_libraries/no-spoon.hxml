@@ -1,0 +1,3 @@
+# @install: lix --silent download "gh://github.com/back2dos/no-spoon#3330b56f754fcd2e89c3e8814dd3ad797577cbfd" into no-spoon/0.2.0/github/3330b56f754fcd2e89c3e8814dd3ad797577cbfd
+-cp ${HAXE_LIBCACHE}/no-spoon/0.2.0/github/3330b56f754fcd2e89c3e8814dd3ad797577cbfd/src
+-D no-spoon=0.2.0

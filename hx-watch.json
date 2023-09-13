@@ -1,0 +1,11 @@
+{
+  "build": {
+    "program" : "haxe",
+    "buildType" : "build",
+    "src" : "src",
+    "livereload" : "dist",
+    "platforms" : ["html5"],
+    "hxml": "build.hxml",
+    "compiler": "server"
+  }
+}

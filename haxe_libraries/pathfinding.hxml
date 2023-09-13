@@ -1,0 +1,3 @@
+# @install: lix --silent download "git:https://github.com/Partysun/hxpathfinding.git#0e9f5b3af00f048b27008cef81480be05870a488" into pathfinding/0.1.0/git/0e9f5b3af00f048b27008cef81480be05870a488
+-cp ${HAXE_LIBCACHE}/pathfinding/0.1.0/git/0e9f5b3af00f048b27008cef81480be05870a488/source/
+-D pathfinding=0.1.0

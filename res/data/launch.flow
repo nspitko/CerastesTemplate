@@ -1,0 +1,46 @@
+cls:cerastes.flow.FlowFile {
+	version = 1
+	nodes = [
+		cls:cerastes.flow.EntryNode {
+			id = 1
+			pins = {
+				0 = 2
+			}
+			editorData = {
+				x = 25
+				y = 25
+			}
+		}
+		cls:cerastes.flow.SceneNode {
+			scene = "game.scenes.TestScene"
+			id = 3
+			pins = {
+				0 = 4
+				1 = 5
+			}
+			editorData = {
+				x = 295
+				y = 216
+			}
+		}
+		cls:cerastes.flow.FileNode {
+			file = "data/nested_test.flow"
+			id = 6
+			pins = {
+				0 = 7
+				1 = 8
+			}
+			editorData = {
+				x = 303
+				y = 82
+			}
+		}
+	]
+	links = [
+		{
+			id = 9
+			sourceId = 2
+			destId = 4
+		}
+	]
+}

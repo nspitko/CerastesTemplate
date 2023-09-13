@@ -52,7 +52,6 @@
 #--macro cerastes.net.Macros.ReplicatorBuilder.build()
 --macro cerastes.macros.FGDGenerator.build()
 --macro cerastes.fmt.CerastesResources.build()
-#--macro cerastes.macros.CUI.appendSerializers("res/data/cui_elements.json")
 
 --debug
 -D hl-check

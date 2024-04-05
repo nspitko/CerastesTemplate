@@ -1,0 +1,30 @@
+[submodule "haxe_modules/hlimgui"]
+	path = haxe_modules/hlimgui
+	url = https://github.com/nspitko/hlimgui
+[submodule "haxe_modules/binpacking"]
+	path = haxe_modules/binpacking
+	url = https://github.com/nspitko/Rectangle-Bin-Packing
+[submodule "haxe_modules/compiletime"]
+	path = haxe_modules/compiletime
+	url = https://github.com/nspitko/compiletime
+[submodule "haxe_modules/format"]
+	path = haxe_modules/format
+	url = https://github.com/HaxeFoundation/format
+[submodule "haxe_modules/hashlink"]
+	path = haxe_modules/hashlink
+	url = https://github.com/nspitko/hashlink
+[submodule "haxe_modules/heaps"]
+	path = haxe_modules/heaps
+	url = https://github.com/nspitko/heaps
+[submodule "haxe_modules/hscript"]
+	path = haxe_modules/hscript
+	url = https://github.com/HaxeFoundation/hscript
+[submodule "haxe_modules/no-spoon"]
+	path = haxe_modules/no-spoon
+	url = https://github.com/back2dos/no-spoon/
+[submodule "haxe_modules/tweenx"]
+	path = haxe_modules/tweenx
+	url = https://github.com/nspitko/tweenx
+[submodule "haxe_modules/cerastes"]
+	path = haxe_modules/cerastes
+	url = https://github.com/nspitko/cerastes

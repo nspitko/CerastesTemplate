@@ -1,0 +1,79 @@
+cls:cerastes.fmt.Atlas {
+	entries = cls:haxe.ds.StringMap {
+		dwarf = cls:cerastes.fmt.AtlasEntry {
+			frames = [
+				{
+					file = "raw_sprites/dwarf.png"
+					pos = {
+						y = 39
+					}
+					offset = {
+					}
+					size = {
+						x = 23
+						y = 18
+					}
+				}
+			]
+			size = {
+				x = 23
+				y = 18
+			}
+			bbox = cls:cerastes.fmt.Vec4i {
+			}
+			origin = {
+			}
+		}
+		mage = cls:cerastes.fmt.AtlasEntry {
+			frames = [
+				{
+					file = "raw_sprites/mage.png"
+					pos = {
+						y = 19
+					}
+					offset = {
+					}
+					size = {
+						x = 17
+						y = 20
+					}
+				}
+			]
+			size = {
+				x = 17
+				y = 20
+			}
+			bbox = cls:cerastes.fmt.Vec4i {
+			}
+			origin = {
+			}
+		}
+		warrior = cls:cerastes.fmt.AtlasEntry {
+			frames = [
+				{
+					file = "raw_sprites/warrior.png"
+					pos = {
+					}
+					offset = {
+					}
+					size = {
+						x = 21
+						y = 19
+					}
+				}
+			]
+			size = {
+				x = 21
+				y = 19
+			}
+			bbox = cls:cerastes.fmt.Vec4i {
+			}
+			origin = {
+			}
+		}
+	}
+	textureFile = "atlases/sprites_tex.png"
+	packMode = enum:cerastes.fmt.PackMode.MaxRects
+	size = cls:cerastes.fmt.Vec2i {
+	}
+}

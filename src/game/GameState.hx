@@ -26,8 +26,7 @@ import cerastes.input.Controller;
 
 import cerastes.Utils;
 
-@:enum
-abstract CollisionGroup(Int) from Int to Int
+enum abstract CollisionGroup(Int) from Int to Int
 {
 	var None = 0;			// Nadda
 	var Player = 1;			// The player

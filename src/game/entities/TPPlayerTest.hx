@@ -1,5 +1,6 @@
 package game.entities;
 
+#if bullet
 
 import cerastes.c3d.Model.ModelDef;
 import h3d.scene.Object;
@@ -60,6 +61,6 @@ class Player extends cerastes.c3d.entities.Player
 	{
 		super.sync(ctx);
 	}
-
-
 }
+
+#end

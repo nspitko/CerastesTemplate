@@ -1,0 +1,6 @@
+build-common.hxml
+
+-hl bin/main.hl
+
+-D hl-check
+-dce full

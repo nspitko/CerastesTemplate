@@ -1,0 +1,49 @@
+-cp src
+-cp haxe_modules/hashlink/libs/fmt
+-D fmt=1.15.0
+-cp haxe_modules/hashlink/libs/sdl
+-D hlsdl=1.15.0
+-cp haxe_modules/hashlink/libs/openal
+-D hlopenal=1.4.0
+-cp haxe_modules/tweenx/src/tweenxcore
+
+-lib heaps
+-lib cerastes
+-lib tweenx
+-lib hscript
+-lib compiletime
+-lib no-spoon
+-main Main
+
+-D windowSize=1280x720
+-D renderScale=1
+-D windowTitle=Cerastes Template
+
+-D client=1
+-D flow=1
+
+--macro cerastes.ui.Init.setup()
+
+--macro include("game.entities", true)
+--macro include("game.scenes", true)
+--macro include("game.objects", true)
+--macro include("game.abilities", true)
+--macro include("game.ui", true)
+--macro include("cerastes.tools", true)
+--macro include("cerastes.fmt", true)
+--macro include("data", true)
+--macro include("cerastes.fmt.Convert")
+--macro include("cerastes.pass")
+
+# Deprecated?
+#--macro cerastes.ui.Init.setup()
+# Only enable for networking builds
+#--macro cerastes.net.Macros.ReplicatorBuilder.build()
+# Deprecated
+#--macro cerastes.macros.SpriteData.build()
+# Only use for Trenchbroom 3d
+#--macro cerastes.macros.FGDGenerator.build()
+--macro cerastes.fmt.CerastesResources.build()
+--macro cerastes.macros.EntityBuilder.generate()
+# Deprecated
+#--macro cerastes.macros.CUI.appendSerializers("res/data/cui_elements.json")

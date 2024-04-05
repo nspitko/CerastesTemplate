@@ -13,7 +13,6 @@ class Main extends cerastes.App
 	override function init()
 	{
 		super.init();
-
 		cerastes.App.currentScene.switchToNewScene("game.scenes.PreloadScene");
 	}
 

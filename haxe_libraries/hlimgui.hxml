@@ -1,4 +1,0 @@
-# @install: lix --silent download "git:https://github.com/nspitko/hlimgui.git#6101521598780d39c8ea911a98500887fc00ca23" into hlimgui/0.0.1/git/6101521598780d39c8ea911a98500887fc00ca23
-#-cp ${HAXE_LIBCACHE}/hlimgui/0.0.1/git/6101521598780d39c8ea911a98500887fc00ca23/
--cp d:/work/hlimgui/
--D hlimgui=0.0.1

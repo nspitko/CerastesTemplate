@@ -1,5 +1,0 @@
-# @install: lix --silent download "haxelib:/hldx#1.10.0" into hldx/1.10.0/haxelib
--lib hlopenal
-#-cp ${HAXE_LIBCACHE}/hldx/1.10.0/haxelib/
--cp D:\work\hashlink\libs\directx
--D hldx=1.10.0

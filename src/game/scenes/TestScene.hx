@@ -2,7 +2,7 @@ package game.scenes;
 
 
 import hxd.Key;
-import cerastes.c3d.DebugDraw;
+import cerastes.c2d.DebugDraw;
 
 
 @:keep

@@ -1,61 +1,19 @@
-# hl
--cp src
--lib heaps
--lib hldx
-#-lib hlsdl
--lib cerastes
--lib tweenxcore
--lib hscript
+build-common.hxml
+
 -lib hlimgui
-#-lib cannonml
-#-lib heapsozz
--lib webidl
--lib bullet
--lib hlrecast
--lib compiletime
--lib no-spoon
 -lib binpacking
-#-lib udprotean
--main Main
 
--hl bin/main.hl
-#-js dist/main.js
-#-hl dist/main.c
+-hl bin/main_tools.hl
 
--D windowSize=1280x720
--D renderScale=2
--D windowTitle=Template
-
-#-D network=1
--D client=1
--D flow=1
 -D tools
--D haxeJSON
-#-D pbr
--D orientationhack
--D biglightmaps
-#-D heaps_unsafe_events
-
--D q3bsp
--D tools
-
---macro cerastes.ui.Init.setup()
-
---macro include("game.scenes", true)
---macro include("cerastes.tools", true)
---macro include("cerastes.fmt", true)
---macro include("cerastes.c3d.entities", true)
---macro include("data", true)
---macro include("cerastes.fmt.Convert")
-
-#--macro cerastes.ui.Init.setup()
-#--macro cerastes.net.Macros.ReplicatorBuilder.build()
---macro cerastes.macros.FGDGenerator.build()
---macro cerastes.fmt.CerastesResources.build()
+-D noassert
+-D multidriver
+# https://github.com/HaxeFoundation/hashlink/pull/672
+#-D globalmouse
 
 --debug
 -D hl-check
-#-xml api.xml
-#-D warn-var-shadowing
+# Optional. Keeping DCE always on makes it easier to catch bad patterns
+# during development until discovering at the last minute when you
+# generate a JS build
 -dce full
--w -WDeprecated

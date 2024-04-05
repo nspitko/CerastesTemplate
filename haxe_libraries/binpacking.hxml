@@ -1,3 +1,0 @@
-# @install: lix --silent download "gh://github.com/nspitko/Rectangle-Bin-Packing#ab3ec0a81b9af6d5dbcfdfe756195e5792db38e5" into bin-packing/1.0.2/github/ab3ec0a81b9af6d5dbcfdfe756195e5792db38e5
--cp ${HAXE_LIBCACHE}/bin-packing/1.0.2/github/ab3ec0a81b9af6d5dbcfdfe756195e5792db38e5/
--D binpacking=1.0.2

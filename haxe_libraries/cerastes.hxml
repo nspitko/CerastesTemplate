@@ -1,4 +1,0 @@
-# @install: lix --silent download "gh://github.com/nspitko/cerastes#bf57c674f6fd84d404093c42821a208712ebc20a" into cerastes/0.0.1/github/bf57c674f6fd84d404093c42821a208712ebc20a
--lib heaps
--cp ${HAXE_LIBCACHE}/cerastes/0.0.1/github/bf57c674f6fd84d404093c42821a208712ebc20a/
--D cerastes=0.0.1

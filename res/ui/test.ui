@@ -1,0 +1,55 @@
+cls:cerastes.fmt.CUIFile {
+	version = 3
+	root = cls:cerastes.fmt.CUIObject {
+		type = "h2d.Object"
+		name = "root"
+		children = [
+			cls:cerastes.fmt.CUIBitmap {
+				tile = "#440000"
+				width = 500
+				height = 500
+				smooth = -1
+				type = "h2d.Bitmap"
+				name = "Bitmap 2"
+				blendMode = enum:h2d.BlendMode.Alpha
+			}
+			cls:cerastes.fmt.CUIBitmap {
+				tile = "atlases/sprites.catlas|warrior"
+				smooth = -1
+				type = "h2d.Bitmap"
+				name = "bmp_warrior"
+				x = 60
+				y = 100
+				scaleX = 9
+				scaleY = 9
+				blendMode = enum:h2d.BlendMode.Alpha
+			}
+		]
+		blendMode = enum:h2d.BlendMode.Alpha
+	}
+	timelines = [
+		cls:cerastes.ui.Timeline {
+			operations = [
+				cls:cerastes.ui.TimelineOperation {
+					target = "bmp_warrior"
+					key = "x"
+					value = 600
+					hasInitialValue = true
+					duration = 10
+					type = 101
+				}
+				cls:cerastes.ui.TimelineOperation {
+					target = "bmp_warrior"
+					key = "alpha"
+					value = 1
+					hasInitialValue = true
+					duration = 5
+					type = 100
+				}
+			]
+			frames = 10
+			frameRate = 10
+			name = "appear"
+		}
+	]
+}

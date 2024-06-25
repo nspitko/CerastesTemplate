@@ -1,0 +1,48 @@
+//
+// Forge Game Data file for Cerastes/Trenchbroom integration
+//
+// This file includes base classes not explicitly defined in
+// the generated file.
+//
+
+//
+// Common prop bases
+//
+
+@baseclass = Angle
+[
+	angle(integer) : "Direction"
+]
+
+@baseclass = Targetname
+[
+	targetname(target_source) : "Name"
+]
+
+@baseclass = Target
+[
+	target(target_destination) : "Target"
+]
+
+@baseclass = KillTarget
+[
+	killtarget(target_destination) : "Kill Target"
+]
+
+//
+// Entity bases
+//
+
+@baseclass studio({{ model != Null -> model }}) = Prop : "A Prop"
+[
+	model(studio) : "Model"
+]
+
+@baseclass size(-16 -16 -24, 16 16 32) color(32 192 32) = PlayerClass []
+
+@baseclass size(-8 -8 -8, 8 8 8) color(200 200 16) = LightBase : "A light"
+[
+	_color(color1) : "Color"
+]
+
+@PointClass base(Targetname) size(-8 -8 -8, 8 8 8) color(128 128 128) = info_null : "A generic position marker" []

@@ -45,14 +45,14 @@ class Player extends cerastes.c3d.entities.Player
 		eyePos = new Vec3(0,0,32);
 
 		controller = cast world.createEntityClass( ThirdPersonPlayerController, def );
-
+/*
 		var modelDef = cerastes.file.CDParser.parse( hxd.Res.loader.load("models/placeholder/vanguard.model").entry.getText(), ModelDef );
 
 		model = modelDef.toObject(this);
 
 		var animations= modelDef.getAnimations();
 		model.playAnimation( animations[0] );
-
+*/
 		super.onCreated( def );
 
 	}
@@ -60,6 +60,11 @@ class Player extends cerastes.c3d.entities.Player
 	public override function sync( ctx: RenderContext )
 	{
 		super.sync(ctx);
+	}
+
+	public override function jump()
+	{
+		velocity.z += 270;
 	}
 }
 

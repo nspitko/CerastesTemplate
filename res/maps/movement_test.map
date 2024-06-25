@@ -1,0 +1,154 @@
+// Game: Generic
+// Format: Standard
+// entity 0
+{
+"classname" "worldspawn"
+"_tb_def" "external:../game.fgd"
+"_keeplights " "1"
+// brush 0
+{
+( -336 -32 -16 ) ( -336 -31 -16 ) ( -336 -32 -15 ) __TB_empty 0 0 0 1 1
+( -16 -368 -16 ) ( -16 -368 -15 ) ( -15 -368 -16 ) __TB_empty 16 0 0 1 1
+( -16 -32 -16 ) ( -15 -32 -16 ) ( -16 -31 -16 ) __TB_empty 16 0 0 1 1
+( 112 96 16 ) ( 112 97 16 ) ( 113 96 16 ) __TB_empty 16 0 0 1 1
+( 112 960 16 ) ( 113 960 16 ) ( 112 960 17 ) __TB_empty 16 0 0 1 1
+( 320 96 16 ) ( 320 96 17 ) ( 320 97 16 ) __TB_empty 0 0 0 1 1
+}
+// brush 1
+{
+( -256 16 352 ) ( -256 288 16 ) ( -256 288 352 ) __TB_empty 0 0 0 1 1
+( -112 -16 352 ) ( -256 -16 16 ) ( -256 -16 352 ) __TB_empty 0 0 0 1 1
+( -112 288 16 ) ( -256 16 16 ) ( -112 16 16 ) __TB_empty 0 0 0 1 1
+( -112 288 352 ) ( -256 16 352 ) ( -256 288 352 ) __TB_empty 0 0 0 1 1
+( -112 288 352 ) ( -256 288 16 ) ( -112 288 16 ) __TB_empty 0 0 0 1 1
+( -112 288 352 ) ( -112 16 16 ) ( -112 16 352 ) __TB_empty 0 0 0 1 1
+}
+// brush 2
+{
+( 112 16 352 ) ( 112 288 16 ) ( 112 288 352 ) __TB_empty 0 0 0 1 1
+( 256 -16 352 ) ( 112 -16 16 ) ( 112 -16 352 ) __TB_empty -16 0 0 1 1
+( 256 288 16 ) ( 112 16 16 ) ( 256 16 16 ) __TB_empty -16 0 0 1 1
+( 256 288 352 ) ( 112 16 352 ) ( 112 288 352 ) __TB_empty -16 0 0 1 1
+( 256 288 352 ) ( 112 288 16 ) ( 256 288 16 ) __TB_empty -16 0 0 1 1
+( 256 288 352 ) ( 256 16 16 ) ( 256 16 352 ) __TB_empty 0 0 0 1 1
+}
+}
+// entity 1
+{
+"classname" "info_player_start"
+"origin" "0 -48 40"
+"_color" ""
+}
+// entity 2
+{
+"classname" "light"
+"origin" "-176 -208 176"
+"_color" ""
+}
+// entity 3
+{
+"classname" "light"
+"origin" "0 -208 176"
+"_color" ""
+}
+// entity 4
+{
+"classname" "light"
+"origin" "176 -208 176"
+"_color" ""
+}
+// entity 5
+{
+"classname" "light"
+"origin" "176 -32 176"
+"_color" ""
+}
+// entity 6
+{
+"classname" "light"
+"origin" "0 -32 176"
+"_color" ""
+}
+// entity 7
+{
+"classname" "light"
+"origin" "-176 -32 176"
+"_color" ""
+}
+// entity 8
+{
+"classname" "light"
+"origin" "176 144 432"
+"_color" ""
+}
+// entity 9
+{
+"classname" "light"
+"origin" "0 144 176"
+"_color" ""
+}
+// entity 10
+{
+"classname" "light"
+"origin" "-176 144 432"
+"_color" ""
+}
+// entity 11
+{
+"classname" "light"
+"origin" "176 320 176"
+"_color" ""
+}
+// entity 12
+{
+"classname" "light"
+"origin" "0 320 176"
+"_color" ""
+}
+// entity 13
+{
+"classname" "light"
+"origin" "-176 320 176"
+"_color" ""
+}
+// entity 14
+{
+"classname" "light"
+"origin" "176 496 176"
+"_color" ""
+}
+// entity 15
+{
+"classname" "light"
+"origin" "0 496 176"
+"_color" ""
+}
+// entity 16
+{
+"classname" "light"
+"origin" "-176 496 176"
+"_color" ""
+}
+// entity 17
+{
+"classname" "light"
+"origin" "176 672 176"
+"_color" ""
+}
+// entity 18
+{
+"classname" "light"
+"origin" "0 672 176"
+"_color" ""
+}
+// entity 19
+{
+"classname" "light"
+"origin" "-176 672 176"
+"_color" ""
+}
+// entity 20
+{
+"classname" "prop_testF"
+"origin" "8 56 104"
+}

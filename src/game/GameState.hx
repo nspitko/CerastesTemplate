@@ -92,7 +92,7 @@ class GameState
 		FlowRunner.registerOnContextCreated(GameState, onFlowRunnerCreated );
 
 		#if debug
-		GlobalConsole.instance.console.addCommand("test", "runs a test. Optional argument for the test name, else runs all.", [{ name : "Key", t : AString, opt: true }], consoleRunTest );
+		GlobalConsole.console.addCommand("test", "runs a test. Optional argument for the test name, else runs all.", [{ name : "Key", t : AString, opt: true }], consoleRunTest );
 		#end
 	}
 

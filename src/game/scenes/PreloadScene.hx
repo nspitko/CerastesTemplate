@@ -83,7 +83,7 @@ class PreloadScene extends cerastes.Scene
 	function onReady()
 	{
 		Utils.info("init console");
-		GlobalConsole.instance.init();
+		GlobalConsole.init();
 
 		GameState.setup();
 		GameState.reset();

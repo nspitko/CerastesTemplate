@@ -28,3 +28,9 @@
 [submodule "haxe_modules/cerastes"]
 	path = haxe_modules/cerastes
 	url = https://github.com/nspitko/cerastes
+[submodule "haxe_modules/bullet"]
+	path = haxe_modules/bullet
+	url = https://github.com/nspitko/bullet
+[submodule "haxe_modules/webidl"]
+	path = haxe_modules/webidl
+	url = https://github.com/ncannasse/webidl

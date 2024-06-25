@@ -8,8 +8,8 @@ build-common.hxml
 -D tools
 -D noassert
 -D multidriver
-# https://github.com/HaxeFoundation/hashlink/pull/672
-#-D globalmouse
+-D globalmouse
+-D hot-reload
 
 --debug
 -D hl-check

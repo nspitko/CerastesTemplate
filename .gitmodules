@@ -33,4 +33,4 @@
 	url = https://github.com/nspitko/bullet
 [submodule "haxe_modules/webidl"]
 	path = haxe_modules/webidl
-	url = https://github.com/ncannasse/webidl
+	url = https://github.com/nspitko/webidl

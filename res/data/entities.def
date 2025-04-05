@@ -1,0 +1,10 @@
+cls:cerastes.EntityFile
+{
+	entities = {
+		deco_test = cls: cerastes.c2d.tile.DecoDef {
+			type = "cerastes.c2d.tile.Deco"
+			anim = "test"
+		}
+	}
+
+}

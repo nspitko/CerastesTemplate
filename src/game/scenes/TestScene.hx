@@ -1,6 +1,7 @@
 package game.scenes;
 
 
+import cerastes.c2d.tile.Deco;
 import cerastes.c3d.q3bsp.Q3BSPFile;
 import cerastes.c3d.World;
 import cerastes.c3d.q3bsp.Q3BSPBrush;
@@ -32,6 +33,8 @@ class TestScene extends cerastes.Scene
 	{
 		super.tick(delta);
 		world.tick( delta );
+
+		var d: Deco = new Deco(null, null);
 
 		DebugDraw.text('${ Math.round( hxd.Timer.fps() )} fps');
 

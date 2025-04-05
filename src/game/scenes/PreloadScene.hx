@@ -1,5 +1,7 @@
 package game.scenes;
 
+import cerastes.EntityBuilder;
+import cerastes.Entity.EntityManager;
 #if hlimgui
 import cerastes.tools.ImguiTool.ImGuiToolManager;
 import cerastes.tools.VariableEditor;
@@ -87,6 +89,8 @@ class PreloadScene extends cerastes.Scene
 
 		GameState.setup();
 		GameState.reset();
+
+		EntityBuilder.init(["data/entites.def"]);
 
 		var language = "en";
 		LocalizationManager.initialize(language);

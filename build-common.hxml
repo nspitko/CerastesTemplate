@@ -19,6 +19,7 @@
 -lib no-spoon
 -lib bullet
 -lib webidl
+-lib echo
 
 -main Main
 
@@ -57,5 +58,8 @@
 --macro cerastes.macros.FGDGenerator.build()
 --macro cerastes.fmt.CerastesResources.build()
 --macro cerastes.macros.EntityBuilder.generate()
+
+# For echo
+--macro echo.Macros.add_data("entity", "game.entities.EchoObject")
 # Deprecated
 #--macro cerastes.macros.CUI.appendSerializers("res/data/cui_elements.json")

@@ -37,10 +37,12 @@ enum abstract CollisionGroup(Int) from Int to Int
 
 enum GameActions
 {
-	// Advance text
-	Advance;
-	Cancel;
-	Skip;
+	Left;
+	Right;
+	Up;
+	Down;
+	Hook;
+
 }
 
 @:structInit class GameConfig
@@ -89,6 +91,12 @@ class GameState
 	// game-specific
 	public static function setup()
 	{
+		input = new cerastes.input.Controller( GameActions );
+		input.bindKeyboard( Up, [ Key.W, Key.UP ] );
+		input.bindKeyboard( Left, [ Key.A, Key.LEFT ] );
+		input.bindKeyboard( Down, [ Key.S, Key.DOWN ] );
+		input.bindKeyboard( Right, [ Key.D, Key.RIGHT ] );
+
 		FlowRunner.registerOnContextCreated(GameState, onFlowRunnerCreated );
 
 		#if debug

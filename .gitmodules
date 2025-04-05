@@ -34,3 +34,6 @@
 [submodule "haxe_modules/webidl"]
 	path = haxe_modules/webidl
 	url = https://github.com/nspitko/webidl
+[submodule "haxe_modules/echo"]
+	path = haxe_modules/echo
+	url = https://github.com/AustinEast/echo/

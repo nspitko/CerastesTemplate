@@ -1,3 +1,4 @@
+import echo.World;
 #if hlimgui
 import cerastes.tools.ImguiTool.ImGuiToolManager;
 #end
@@ -5,6 +6,10 @@ import cerastes.tools.ImguiTool.ImGuiToolManager;
 
 class Main extends cerastes.App
 {
+
+	public static var world:World;
+
+
 	function new()
 	{
 		super();
@@ -19,6 +24,8 @@ class Main extends cerastes.App
 
 	override function update(dt:Float)
 	{
+		if( world != null )
+			world.step(dt);
 		super.update(dt);
 	}
 

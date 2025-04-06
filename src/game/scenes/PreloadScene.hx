@@ -1,5 +1,6 @@
 package game.scenes;
 
+import cerastes.SoundManager;
 import cerastes.EntityBuilder;
 import cerastes.Entity.EntityManager;
 #if hlimgui
@@ -119,6 +120,9 @@ class PreloadScene extends cerastes.Scene
 		#else
 		switchToNewScene( "game.scenes.TestScene" );
 		#end
+
+		SoundManager.musicVol = 0.5;
+		SoundManager.playMusicFile("audio/explore.ogg");
 
 	}
 

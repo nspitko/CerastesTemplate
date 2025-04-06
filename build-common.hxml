@@ -25,9 +25,8 @@
 
 -D windowSize=1280x720
 -D renderScale=1
--D windowTitle=Cerastes Template
+-D windowTitle=LD57
 -D globalmouse
--D q3bsp
 
 -D client=1
 -D flow=1
@@ -41,8 +40,6 @@
 --macro include("game.ui", true)
 --macro include("cerastes.tools", true)
 --macro include("cerastes.fmt", true)
---macro include("cerastes.c3d.bsp", true)
---macro include("cerastes.c3d.entities", true)
 --macro include("cerastes.c2d", true)
 --macro include("data", true)
 --macro include("cerastes.fmt.Convert")
@@ -55,11 +52,11 @@
 # Deprecated
 #--macro cerastes.macros.SpriteData.build()
 # Only use for Trenchbroom 3d
---macro cerastes.macros.FGDGenerator.build()
+#--macro cerastes.macros.FGDGenerator.build()
 --macro cerastes.fmt.CerastesResources.build()
 --macro cerastes.macros.EntityBuilder.generate()
 
 # For echo
---macro echo.Macros.add_data("entity", "game.entities.EchoObject")
+--macro echo.Macros.add_data("entity", "game.entities.EchoEntity")
 # Deprecated
 #--macro cerastes.macros.CUI.appendSerializers("res/data/cui_elements.json")

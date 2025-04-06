@@ -1,13 +1,12 @@
 package game.scenes;
 
 
+import h2d.Camera;
+import cerastes.Scene.UIScene;
+import h2d.Object;
 import game.entities.Player;
 import h3d.Engine;
 import cerastes.c2d.tile.Deco;
-import cerastes.c3d.q3bsp.Q3BSPFile;
-import cerastes.c3d.World;
-import cerastes.c3d.q3bsp.Q3BSPBrush;
-import cerastes.c3d.q3bsp.Q3BSPWorld;
 import hxd.Key;
 import cerastes.c2d.DebugDraw;
 import echo.Echo;
@@ -16,25 +15,59 @@ import echo.util.Debug;
 
 
 @:keep
-class TestScene extends cerastes.Scene
+class TestScene extends UIScene
 {
-	var l: Level;
 	var debug: HeapsDebug;
 
-	var player: Player;
+
+	@:obj var ctnLevelOffset: h2d.Object;
+	@:obj var txtOxygen: h2d.Text;
+	@:obj var txtFloor: h2d.Text;
+	@:obj var txtGold: h2d.Text;
+
+	public var scrollRoot: h2d.Object;
+
+	var showDebug = false;
 
 	override function enter()
 	{
+		ui = hxd.Res.ui.game_base.toObject();
+        s2d.add( ui, 2 );
+
+		var root = s2d;
+		cerastes.macros.UIPopulator.populateObjects();
+
 		super.enter();
 
-		l = new Level( s2d );
 
-		debug = new HeapsDebug(s2d);
+		scrollRoot = new h2d.Object();
+		s2d.add(scrollRoot, 0 );
+
+		scrollRoot.addChild( DebugDraw.g );
+
+		GameState.level.generate();
+		scrollRoot.addChild( GameState.level );
+
+		GameState.level.levelHeight = cast GameState.level.getBounds().height;
+
+		//l.x = ctnLevel.x;
+
+		debug = new HeapsDebug(scrollRoot);
 
 		h3d.Engine.getCurrent().backgroundColor = 0x555555;
 
-		player = new Player(s2d);
-		player.body.x = 200;
+		GameState.player = new Player(GameState.level);
+		GameState.player.body.x = 32 * 12;
+
+		GameState.player.reset();
+
+		var uiCamera = new Camera();
+		s2d.addCamera( uiCamera );
+		// Filter layers
+		uiCamera.layerVisible = (idx) -> idx == 2;
+		s2d.camera.layerVisible = (idx) -> idx == 0;
+		s2d.camera.viewportX = ctnLevelOffset.x;
+
 
 
 	}
@@ -43,9 +76,31 @@ class TestScene extends cerastes.Scene
 	{
 		super.tick(delta);
 
-		debug.draw(Main.world);
 
-		s2d.camera.y = -hxd.Window.getInstance().height / 2 + player.y;
+		s2d.camera.y = -hxd.Window.getInstance().height / 2 + GameState.player.y;
+		if( s2d.camera.y < 0 )
+			s2d.camera.y = 0;
+		var maxHeight =  GameState.level.levelHeight - s2d.height;
+		if( s2d.camera.y > maxHeight )
+		{
+			s2d.camera.y = maxHeight;
+		}
+
+		txtOxygen.formatLoc( Std.string( Math.floor( GameState.player.oxygen ) ) );
+		txtGold.formatLoc( Std.string( GameState.player.gold ) );
+		txtFloor.formatLoc( Std.string( GameState.floor ) );
+
+		if( hxd.Key.isPressed( Key.NUMBER_9 ) )
+		{
+			showDebug = !showDebug;
+			if( showDebug )
+				debug.draw(Main.world);
+			else
+				debug.clear();
+		}
+
+
+
 
 
 	}

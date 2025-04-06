@@ -1,0 +1,75 @@
+cls:cerastes.fmt.CUIFile {
+	version = 3
+	root = cls:cerastes.fmt.CUIObject {
+		type = "h2d.Object"
+		name = "root"
+		children = [
+			cls:cerastes.fmt.CUIBitmap {
+				tile = "#FFFFFF"
+				width = 200
+				height = 720
+				color = -12698050
+				smooth = -1
+				type = "h2d.Bitmap"
+				name = "bar_bg"
+				children = [
+					cls:cerastes.fmt.CUIFlow {
+						layout = enum:h2d.FlowLayout.Vertical
+						verticalAlign = enum:h2d.FlowAlign.Top
+						horizontalAlign = enum:h2d.FlowAlign.Left
+						overflow = enum:h2d.FlowOverflow.Limit
+						verticalSpacing = 10
+						smooth = -1
+						type = "h2d.Flow"
+						name = "Flow 1"
+						children = [
+							cls:cerastes.fmt.CUIText {
+								text = "#ui_oxygen"
+								font = "fnt/kodenmanhou16.fnt"
+								textAlign = enum:h2d.Align.Left
+								smooth = -1
+								type = "h2d.Text"
+								name = "txt_oxygen"
+								x = 5
+								y = 5
+								blendMode = enum:h2d.BlendMode.Alpha
+							}
+							cls:cerastes.fmt.CUIText {
+								text = "#ui_floor"
+								font = "fnt/kodenmanhou16.fnt"
+								textAlign = enum:h2d.Align.Left
+								smooth = -1
+								type = "h2d.Text"
+								name = "txt_floor"
+								x = 5
+								y = 5
+								blendMode = enum:h2d.BlendMode.Alpha
+							}
+							cls:cerastes.fmt.CUIText {
+								text = "#ui_gold"
+								font = "fnt/kodenmanhou16.fnt"
+								textAlign = enum:h2d.Align.Left
+								smooth = -1
+								type = "h2d.Text"
+								name = "txt_gold"
+								x = 5
+								y = 5
+								blendMode = enum:h2d.BlendMode.Alpha
+							}
+						]
+						blendMode = enum:h2d.BlendMode.Alpha
+					}
+				]
+				blendMode = enum:h2d.BlendMode.Alpha
+			}
+			cls:cerastes.fmt.CUIObject {
+				type = "h2d.Object"
+				name = "ctn_level_offset"
+				x = 200
+				blendMode = enum:h2d.BlendMode.Alpha
+			}
+		]
+		blendMode = enum:h2d.BlendMode.Alpha
+	}
+	timelines = []
+}

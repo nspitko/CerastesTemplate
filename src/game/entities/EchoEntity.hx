@@ -8,6 +8,7 @@ class EchoEntity extends EchoObject implements Entity
 	public var lookupId: String = "";
 
 	public var initialized(get, never): Bool;
+	var destroyed = false;
 
 	function get_initialized()
 	{
@@ -22,6 +23,9 @@ class EchoEntity extends EchoObject implements Entity
 
 	public function destroy()
 	{
+		destroyed = true;
+		dispose();
+		remove();
 	}
 
 	public function tick( delta: Float )
@@ -35,7 +39,7 @@ class EchoEntity extends EchoObject implements Entity
 
 	public function isDestroyed()
 	{
-		return false;
+		return destroyed;
 	}
 
 	public override function toString(): String

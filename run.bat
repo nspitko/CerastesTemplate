@@ -1,2 +1,2 @@
-haxe build.hxml
-start hl bin/main.hl
+rem haxe build.hxml
+start tools/hl/hl bin/main_tools.hl

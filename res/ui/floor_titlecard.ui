@@ -1,0 +1,58 @@
+cls:cerastes.fmt.CUIFile {
+	version = 3
+	root = cls:cerastes.fmt.CUIObject {
+		type = "h2d.Object"
+		name = "root"
+		children = [
+			cls:cerastes.fmt.CUIFlow {
+				layout = enum:h2d.FlowLayout.Horizontal
+				verticalAlign = enum:h2d.FlowAlign.Middle
+				horizontalAlign = enum:h2d.FlowAlign.Middle
+				overflow = enum:h2d.FlowOverflow.Limit
+				minWidth = 1280
+				smooth = -1
+				type = "h2d.Flow"
+				name = "Flow 2"
+				children = [
+					cls:cerastes.fmt.CUIFlow {
+						layout = enum:h2d.FlowLayout.Vertical
+						verticalAlign = enum:h2d.FlowAlign.Middle
+						horizontalAlign = enum:h2d.FlowAlign.Right
+						overflow = enum:h2d.FlowOverflow.Limit
+						verticalSpacing = 9
+						smooth = -1
+						type = "h2d.Flow"
+						name = "Flow 1"
+						children = [
+							cls:cerastes.fmt.CUIText {
+								text = "A dark hole"
+								font = "fnt/kodenmanhou16.fnt"
+								textAlign = enum:h2d.Align.Left
+								smooth = -1
+								type = "h2d.Text"
+								name = "txt_city_name"
+								scaleX = 5
+								scaleY = 5
+								blendMode = enum:h2d.BlendMode.Alpha
+							}
+							cls:cerastes.fmt.CUIText {
+								text = "The fourty third floor"
+								font = "fnt/kodenmanhou16.fnt"
+								textAlign = enum:h2d.Align.Left
+								smooth = -1
+								type = "h2d.Text"
+								name = "txt_floor"
+								blendMode = enum:h2d.BlendMode.Alpha
+							}
+						]
+						blendMode = enum:h2d.BlendMode.Alpha
+					}
+				]
+				y = 280
+				blendMode = enum:h2d.BlendMode.Alpha
+			}
+		]
+		blendMode = enum:h2d.BlendMode.Alpha
+	}
+	timelines = []
+}

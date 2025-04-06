@@ -1,0 +1,85 @@
+cls:cerastes.fmt.CUIFile {
+	version = 3
+	root = cls:cerastes.fmt.CUIObject {
+		type = "h2d.Object"
+		name = "root"
+		children = [
+			cls:cerastes.fmt.CUIText {
+				text = "The shop"
+				font = "fnt/kodenmanhou16.fnt"
+				textAlign = enum:h2d.Align.Left
+				smooth = -1
+				type = "h2d.Text"
+				name = "Text 1"
+				x = 30
+				y = 30
+				scaleX = 3
+				scaleY = 3
+				blendMode = enum:h2d.BlendMode.Alpha
+			}
+			cls:cerastes.fmt.CUIButton {
+				text = "Continue"
+				bitmapMode = enum:cerastes.ui.BitmapMode.ButtonTile
+				buttonMode = enum:cerastes.ui.ButtonType.Momentary
+				tweenModeHover = enum:cerastes.ui.ButtonHoverTween.None
+				tweenModeUnHover = enum:cerastes.ui.ButtonHoverTween.None
+				orientation = enum:cerastes.ui.Orientation.None
+				layout = enum:h2d.FlowLayout.Horizontal
+				verticalAlign = enum:h2d.FlowAlign.Top
+				horizontalAlign = enum:h2d.FlowAlign.Left
+				overflow = enum:h2d.FlowOverflow.Limit
+				paddingBottom = 6
+				smooth = -1
+				type = "cerastes.ui.Button"
+				name = "btn_continue"
+				x = 1070
+				y = 610
+				scaleX = 3
+				scaleY = 3
+				blendMode = enum:h2d.BlendMode.Alpha
+			}
+			cls:cerastes.fmt.CUIFlow {
+				layout = enum:h2d.FlowLayout.Horizontal
+				verticalAlign = enum:h2d.FlowAlign.Top
+				horizontalAlign = enum:h2d.FlowAlign.Left
+				overflow = enum:h2d.FlowOverflow.Limit
+				smooth = -1
+				type = "h2d.Flow"
+				name = "Flow 1"
+				children = [
+					cls:cerastes.fmt.CUIObject {
+						type = "h2d.Object"
+						name = "Object 1"
+						children = [
+							cls:cerastes.fmt.CUIButton {
+								text = "test - Oxygen upgrade"
+								bitmapMode = enum:cerastes.ui.BitmapMode.ButtonTile
+								buttonMode = enum:cerastes.ui.ButtonType.Momentary
+								tweenModeHover = enum:cerastes.ui.ButtonHoverTween.None
+								tweenModeUnHover = enum:cerastes.ui.ButtonHoverTween.None
+								orientation = enum:cerastes.ui.Orientation.None
+								layout = enum:h2d.FlowLayout.Horizontal
+								verticalAlign = enum:h2d.FlowAlign.Top
+								horizontalAlign = enum:h2d.FlowAlign.Left
+								overflow = enum:h2d.FlowOverflow.Limit
+								paddingBottom = 4
+								smooth = -1
+								type = "cerastes.ui.Button"
+								name = "btn_test_oxygen"
+								scaleX = 2
+								scaleY = 2
+								blendMode = enum:h2d.BlendMode.Alpha
+							}
+						]
+						blendMode = enum:h2d.BlendMode.Alpha
+					}
+				]
+				x = 140
+				y = 130
+				blendMode = enum:h2d.BlendMode.Alpha
+			}
+		]
+		blendMode = enum:h2d.BlendMode.Alpha
+	}
+	timelines = []
+}

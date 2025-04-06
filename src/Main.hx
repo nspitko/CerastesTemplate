@@ -1,3 +1,4 @@
+import cerastes.macros.Metrics;
 import echo.World;
 #if hlimgui
 import cerastes.tools.ImguiTool.ImGuiToolManager;
@@ -9,6 +10,8 @@ class Main extends cerastes.App
 
 	public static var world:World;
 
+	public static var hitStop: Float = 0;
+
 
 	function new()
 	{
@@ -19,13 +22,21 @@ class Main extends cerastes.App
 	{
 		super.init();
 		cerastes.App.currentScene.switchToNewScene("game.scenes.PreloadScene");
+
 	}
 
 
 	override function update(dt:Float)
 	{
+		if( hitStop > 0 )
+		{
+			hitStop -= dt;
+			return;
+		}
+		Metrics.begin("echo.Step");
 		if( world != null )
 			world.step(dt);
+		Metrics.end();
 		super.update(dt);
 	}
 

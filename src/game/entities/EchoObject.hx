@@ -1,22 +1,80 @@
 package game.entities;
+import cerastes.c2d.Vec2;
 import h2d.RenderContext;
+
+enum BodyGroup
+{
+	Player;
+	Enemy;
+	Pickup;
+}
+
+enum Classification
+{
+	None;
+	Enemy;
+	Loot;
+	Player;
+	//World; // Unused level geo is just any body without an ent
+}
 
 class EchoObject extends h2d.Object
 {
 	public var body:echo.Body = null;
+	public var bodyGroups: Array<BodyGroup> = [];
 
 	public var disposed(default, null):Bool = false;
+
+	public static var bodies: Map<BodyGroup, Array<echo.Body>> = [
+		Player => [],
+		Enemy => [],
+		Pickup => [],
+	];
+
+	var cls: Classification = None;
+
 
 	public function new( ?parent )
 	{
 		super(parent);
+		init();
 		createBody();
-		if( body != null )
-			Main.world.add(body);
+
+	}
+
+
+	public function init()
+	{
+
 	}
 
 	public function createBody()
 	{
+
+	}
+
+	inline function setBodyPos( p: Vec2 )
+	{
+		// AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+		if( Math.isNaN( p.x ) || Math.isNaN( p.y ) )
+			hl.Api.breakPoint();
+
+		body.x = p.x;
+		body.y = p.y;
+	}
+
+	function setTilePos( p: Vec2 )
+	{
+		body.x = p.x + 16;
+		body.y = p.y + 16;
+	}
+
+	function registerBody(body: echo.Body, group: BodyGroup)
+	{
+		if( !bodies.exists(group))
+			bodies[group] = [];
+
+		bodies[group].push(body);
 	}
 
 	/**
@@ -46,9 +104,13 @@ class EchoObject extends h2d.Object
 	override function onAdd()
 	{
 		super.onAdd();
+		if( body != null )
+		{
+			Main.world.add(body);
+			for( g in bodyGroups)
+				registerBody(body, g);
+		}
 
-		//all.push(this);
-		// .world.add(body);
 	}
 
 	/**
@@ -58,8 +120,14 @@ class EchoObject extends h2d.Object
 	{
 		super.onRemove();
 
-		//all.remove(this);
-		body.remove();
+		for( g in bodyGroups )
+			bodies[g].remove(body);
+
+		if( body != null )
+		{
+			body.remove();
+			body = null;
+		}
 	}
 
 	/**

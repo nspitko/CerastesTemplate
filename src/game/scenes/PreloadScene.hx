@@ -1,5 +1,6 @@
 package game.scenes;
 
+import game.modifiers.Modifier;
 import cerastes.SoundManager;
 import cerastes.EntityBuilder;
 import cerastes.Entity.EntityManager;
@@ -91,7 +92,9 @@ class PreloadScene extends cerastes.Scene
 		GameState.setup();
 		GameState.reset();
 
-		EntityBuilder.init(["data/entites.def"]);
+		//EntityBuilder.init(["data/entites.def"]);
+
+		ModifierProperties.init();
 
 		var language = "en";
 		LocalizationManager.initialize(language);
@@ -121,8 +124,11 @@ class PreloadScene extends cerastes.Scene
 		switchToNewScene( "game.scenes.TestScene" );
 		#end
 
-		SoundManager.musicVol = 0.5;
-		SoundManager.playMusicFile("audio/explore.ogg");
+		if( GameState.config.music )
+		{
+			SoundManager.musicVol = 0.5;
+			SoundManager.playMusicFile("audio/explore.ogg");
+		}
 
 	}
 

@@ -9,8 +9,12 @@ import cerastes.c2d.Vec2;
 class Pickup extends EchoEntity
 {
 	var value: Int = 10;
-	public function new( floor: Int, ?parent )
+	var bx: Int;
+	var by: Int;
+	public function new( x: Int, y: Int, floor: Int, ?parent )
 	{
+		bx = x;
+		by = y;
 
 		super(parent);
 		value = 10 + Std.random(10);
@@ -24,8 +28,8 @@ class Pickup extends EchoEntity
 
 		body = new Body({
 			mass: 1,
-			x: 0,
-			y: 0,
+			x: bx + 16,
+			y: by + 16,
 			shape: {
 				type: RECT,
 				width: 32,
@@ -57,8 +61,8 @@ class Pickup extends EchoEntity
 		if( isDestroyed() )
 			return;
 
-		var p: Player = cast b.entity;
-		p.gold += value;
+
+		GameState.gold += value;
 		// @todo
 		destroy();
 	}

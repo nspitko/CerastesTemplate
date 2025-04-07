@@ -1,0 +1,11 @@
+cls:game.GameConfig {
+	localizationFiles = []
+	interpVariables = [
+		{
+			name = "shop_stage"
+			type = enum:cerastes.InterpVariableType.IVTInt
+			comment = "shop dialogue phase"
+		}
+	]
+	music = false
+}

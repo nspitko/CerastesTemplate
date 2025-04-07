@@ -10,38 +10,36 @@ import cerastes.c2d.Vec2;
 
 class Spikes extends Enemy
 {
-	var sx: Float;
-	var sy: Float;
 
 	var w: Int = 8;
 	var h: Int = 8;
 
 	public function new( direction: Int, x: Int, y: Int, ?parent )
 	{
-		sx = x;
-		sy = y;
+		bx = x;
+		by = y;
 		// Directions are the OPEN tile, eg "north" means we're on the south tile. Cool huh?
 		switch( direction )
 		{
 			case 2: // north
-				sy += 32 - h;
-				sx += 32 / 2 + w / 2;
+				by += 32 - h;
+				bx += cast 32 / 2 + w / 2;
 			case 3: // east
-				sx += w / 2;
-				sy += 32 / 2 + h / 2;
+				bx += cast w / 2;
+				by += cast 32 / 2 + h / 2;
 			case 0: // south
-				sy += h / 2;
-				sx += 32 / 2 + w / 2;
+				by += cast h / 2;
+				bx += cast 32 / 2 + w / 2;
 			case 1: // west
-				sx += 32 - w / 2;
-				sy += 32 / 2 + h / 2;
+				bx += cast 32 - w / 2;
+				by += cast 32 / 2 + h / 2;
 
 			default:
-				sx = x;
-				sy = y;
+				bx = cast x;
+				by = cast y;
 		}
 
-		super(parent);
+		super(bx, by, parent);
 	}
 
 	public override function createBody()
@@ -51,8 +49,8 @@ class Spikes extends Enemy
 
 		body = new Body({
 			mass: STATIC,
-			x: sx,
-			y: sy,
+			x: bx,
+			y: by,
 			shape: {
 				type: RECT,
 				width: w,
@@ -72,6 +70,7 @@ class Spikes extends Enemy
 		//b.alpha = 0.2;
 
 	}
+
 
 	public override function onTouchedByPlayer(a:Body, b:Body, ca:Array<CollisionData>) {
 

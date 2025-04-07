@@ -50,16 +50,14 @@ class Level extends EchoObject
 	var tiles: Map<TileIndices, Array<h2d.Tile>>;
 	var sheet: Tile;
 
-	var floor: Int;
 	public var levelHeight: Int;
 
 	public static var collision: Array<Body>;
 
-	public function new(seed: Int = 0, floor: Int, ?parent: h2d.Object)
+	public function new(seed: Int = 0, ?parent: h2d.Object)
 	{
 		super(parent);
 		this.seed = seed;
-		this.floor = floor;
 
 
 		reset();
@@ -67,7 +65,7 @@ class Level extends EchoObject
 
 	public function advanceFloor()
 	{
-		floor++;
+		GameState.floor++;
 		reset();
 	}
 
@@ -108,13 +106,14 @@ class Level extends EchoObject
 	public function restart()
 	{
 		seed = Std.random(3000);
-		floor = 1;
+		GameState.floor = 1;
 		reset();
 	}
 
 	public function generate()
 	{
 		data = new Vector<Int>(width * height, 0);
+		var floor = GameState.floor;
 
 		var p = new Perlin( seed + 1000 * floor );
 
@@ -292,9 +291,7 @@ class Level extends EchoObject
 				{
 					if( isSolid(x, y ) && !isSolid(x, y-1 ) )
 					{
-						var l = new game.entities.Pickup( floor, this );
-						l.body.x = x * tileWidth;
-						l.body.y = y * tileHeight;
+						var l = new game.entities.Pickup( x * tileWidth, y * tileHeight, floor, this );
 						placed = true;
 						break;
 					}
@@ -361,9 +358,7 @@ class Level extends EchoObject
 				if( wantToPlaceShark && canPlace( x, y, 3, 2 ) )
 				{
 					wantToPlaceShark = false;
-					var s = new game.entities.WanderingEnemy( this );
-					s.body.x = x * tileWidth;
-					s.body.y = y * tileHeight;
+					var s = new game.entities.WanderingEnemy( x * tileWidth, y*tileHeight, this );
 				}
 			}
 		}
@@ -504,7 +499,7 @@ class Level extends EchoObject
 
 	public function generateFloorNumber()
 	{
-		return LocalizationManager.localize("titlecard_floor", numberToWords(floor));
+		return LocalizationManager.localize("titlecard_floor", numberToWords(GameState.floor));
 	}
 
 	// Boring i18n stuff haxe doesn't support, ai slop sorry not sorry.

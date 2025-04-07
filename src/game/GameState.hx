@@ -5,9 +5,7 @@ import game.entities.Player;
 import cerastes.App;
 import cerastes.StrictInterp.InterpVariable;
 import haxe.io.Path;
-import sys.FileSystem;
 import cerastes.file.CDPrinter;
-import sys.io.File;
 import cerastes.file.CDParser;
 import cerastes.flow.Flow.FlowContext;
 import cerastes.ui.Console.GlobalConsole;
@@ -53,11 +51,13 @@ enum GameActions
 	public var screenWidth: Int = 1280;
 	public var screenHeight: Int = 720;
 
-	public var wwiseBanks: Array<String> = [];
 	public var localizationFiles: Array<String> = [];
 
 	@serializeType("cerastes.InterpVariable")
 	public var interpVariables: Array<InterpVariable> = [];
+
+	//
+	public var music = true;
 
 }
 
@@ -91,13 +91,16 @@ class GameState
 
 	public static var input: Controller<GameActions>;
 
-	public static var floor: Int = 4;
+	public static var floor: Int = 1;
 	public static var level: Level;
 	public static var player: Player;
 
 	public static var lastOxygen: Int = 0;
 
 	public static var modifiers = new Array<game.modifiers.Modifier>();
+
+	public static var shopIdx: Int = 0;
+	public static var gold: Int = 0;
 
 	// game-specific
 	public static function setup()
@@ -108,13 +111,18 @@ class GameState
 		input.bindKeyboard( Down, [ Key.S, Key.DOWN ] );
 		input.bindKeyboard( Right, [ Key.D, Key.RIGHT ] );
 
-		input.bindKeyboard( Hook, [ Key.SPACE, Key.MOUSE_LEFT ] );
-		input.bindKeyboard( Bash, [ Key.CTRL, Key.MOUSE_RIGHT ] );
+		input.bindKeyboard( Bash, [ Key.SPACE, Key.MOUSE_LEFT ] );
+		input.bindKeyboard( Hook, [ Key.CTRL, Key.MOUSE_RIGHT ] );
 
 		FlowRunner.registerOnContextCreated(GameState, onFlowRunnerCreated );
 
+		config = cerastes.file.CDParser.parse( hxd.Res.data.config.entry.getText(), GameConfig );
 
-		level = new Level( 10, 1 );
+
+		var d = Std.random(3333);
+
+		level = new Level( d );
+		trace(d);
 
 		#if debug
 		GlobalConsole.console.addCommand("test", "runs a test. Optional argument for the test name, else runs all.", [{ name : "Key", t : AString, opt: true }], consoleRunTest );
@@ -163,6 +171,9 @@ class GameState
 		{
 			context.interp.variables.set( val.name, data.kv[val.name] );
 		}
+
+		context.interp.variables.set("floor", GameState.floor);
+		context.interp.variables.set("gold", GameState.gold);
 
 
 		return handled;

@@ -1,82 +1,85 @@
 cls:cerastes.fmt.CUIFile {
 	version = 3
-	root = cls:cerastes.fmt.CUIObject {
-		type = "h2d.Object"
+	root = cls:game.ui.ShopButtonDef {
+		type = "game.ui.ShopButton"
 		name = "root"
 		children = [
 			cls:cerastes.fmt.CUIBitmap {
 				tile = "#FFFFFF"
-				width = 200
-				height = 720
-				color = -12698050
+				width = 400
+				height = 100
+				color = -11119018
 				smooth = -1
 				type = "h2d.Bitmap"
-				name = "bar_bg"
+				name = "Bitmap 1"
 				children = [
-					cls:cerastes.fmt.CUIFlow {
-						layout = enum:h2d.FlowLayout.Vertical
-						verticalAlign = enum:h2d.FlowAlign.Top
-						horizontalAlign = enum:h2d.FlowAlign.Left
-						overflow = enum:h2d.FlowOverflow.Limit
-						verticalSpacing = 10
-						smooth = -1
-						type = "h2d.Flow"
-						name = "Flow 1"
+					cls:cerastes.fmt.CUIObject {
+						type = "h2d.Object"
+						name = "offset"
 						children = [
 							cls:cerastes.fmt.CUIText {
-								text = "#ui_oxygen"
+								text = "+35 oxygen"
 								font = "fnt/kodenmanhou16.fnt"
 								textAlign = enum:h2d.Align.Left
+								maxWidth = 387
 								smooth = -1
 								type = "h2d.Text"
-								name = "txt_oxygen"
-								x = 5
-								y = 5
+								name = "txt_stats"
+								y = 37
 								blendMode = enum:h2d.BlendMode.Alpha
 							}
 							cls:cerastes.fmt.CUIText {
-								text = "#ui_floor"
+								text = "It's a cool item that does stuff!"
+								font = "fnt/kodenmanhou16.fnt"
+								textAlign = enum:h2d.Align.Left
+								maxWidth = 387
+								smooth = -1
+								type = "h2d.Text"
+								name = "txt_desc"
+								y = 36
+								blendMode = enum:h2d.BlendMode.Alpha
+								visible = false
+							}
+							cls:cerastes.fmt.CUIText {
+								text = "Item name!"
 								font = "fnt/kodenmanhou16.fnt"
 								textAlign = enum:h2d.Align.Left
 								smooth = -1
 								type = "h2d.Text"
-								name = "txt_floor"
-								x = 5
-								y = 5
+								name = "txt_name"
+								scaleX = 2
+								scaleY = 2
 								blendMode = enum:h2d.BlendMode.Alpha
 							}
 							cls:cerastes.fmt.CUIText {
-								text = "#ui_gold"
+								text = "20"
 								font = "fnt/kodenmanhou16.fnt"
 								textAlign = enum:h2d.Align.Left
+								color = -327936
 								smooth = -1
 								type = "h2d.Text"
-								name = "txt_gold"
-								x = 5
-								y = 5
-								blendMode = enum:h2d.BlendMode.Alpha
-							}
-							cls:cerastes.fmt.CUIText {
-								text = "#ui_charges"
-								font = "fnt/kodenmanhou16.fnt"
-								textAlign = enum:h2d.Align.Left
-								smooth = -1
-								type = "h2d.Text"
-								name = "txt_bash"
-								x = 5
-								y = 5
+								name = "txt_cost"
+								x = 356
+								y = 60
+								scaleX = 2
+								scaleY = 2
 								blendMode = enum:h2d.BlendMode.Alpha
 							}
 						]
+						x = 5
+						y = 5
+						blendMode = enum:h2d.BlendMode.Alpha
+					}
+					cls:cerastes.fmt.CUIInteractive {
+						cursor = enum:hxd.Cursor.Default
+						width = 400
+						height = 100
+						smooth = -1
+						type = "h2d.Interactive"
+						name = "int_button"
 						blendMode = enum:h2d.BlendMode.Alpha
 					}
 				]
-				blendMode = enum:h2d.BlendMode.Alpha
-			}
-			cls:cerastes.fmt.CUIObject {
-				type = "h2d.Object"
-				name = "ctn_level_offset"
-				x = 200
 				blendMode = enum:h2d.BlendMode.Alpha
 			}
 		]

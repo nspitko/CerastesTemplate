@@ -1,76 +1,129 @@
 cls:cerastes.fmt.Atlas {
 	entries = cls:haxe.ds.StringMap {
-		dwarf = cls:cerastes.fmt.AtlasEntry {
+		Big-Fish = cls:cerastes.fmt.AtlasEntry {
 			frames = [
 				{
-					file = "raw_sprites/dwarf.png"
+					file = "raw_sprites/Big-Fish.png"
 					pos = {
-						y = 39
+						x = 960
 					}
 					offset = {
+						y = 2
 					}
 					size = {
-						x = 23
-						y = 18
+						x = 64
+						y = 61
 					}
 				}
 			]
 			size = {
-				x = 23
-				y = 18
+				x = 64
+				y = 64
 			}
 			bbox = cls:cerastes.fmt.Vec4i {
 			}
 			origin = {
 			}
 		}
-		mage = cls:cerastes.fmt.AtlasEntry {
+		Shop = cls:cerastes.fmt.AtlasEntry {
 			frames = [
 				{
-					file = "raw_sprites/mage.png"
+					file = "raw_sprites/Shop.gif"
 					pos = {
-						y = 19
+						y = 52
 					}
 					offset = {
 					}
 					size = {
-						x = 17
-						y = 20
+						x = 960
+						y = 540
 					}
 				}
 			]
 			size = {
-				x = 17
-				y = 20
+				x = 960
+				y = 540
 			}
 			bbox = cls:cerastes.fmt.Vec4i {
 			}
 			origin = {
 			}
 		}
-		warrior = cls:cerastes.fmt.AtlasEntry {
+		Shop-Button = cls:cerastes.fmt.AtlasEntry {
 			frames = [
 				{
-					file = "raw_sprites/warrior.png"
+					file = "raw_sprites/Shop-Button.gif"
+					pos = {
+						x = 21
+					}
+					offset = {
+					}
+					size = {
+						x = 159
+						y = 52
+					}
+				}
+			]
+			size = {
+				x = 159
+				y = 52
+			}
+			bbox = cls:cerastes.fmt.Vec4i {
+			}
+			origin = {
+			}
+		}
+		Small-Fish = cls:cerastes.fmt.AtlasEntry {
+			frames = [
+				{
+					file = "raw_sprites/Small-Fish.png"
 					pos = {
 					}
 					offset = {
+						x = 4
+						y = 4
 					}
 					size = {
 						x = 21
-						y = 19
+						y = 26
 					}
 				}
 			]
 			size = {
-				x = 21
-				y = 19
+				x = 32
+				y = 32
 			}
 			bbox = cls:cerastes.fmt.Vec4i {
 			}
 			origin = {
 			}
 		}
+		Spike-Launcher-Fish = cls:cerastes.fmt.AtlasEntry {
+			frames = [
+				{
+					file = "raw_sprites/Spike-Launcher-Fish.png"
+					pos = {
+						x = 180
+					}
+					offset = {
+						y = 12
+					}
+					size = {
+						x = 30
+						y = 12
+					}
+				}
+			]
+			size = {
+				x = 32
+				y = 32
+			}
+			bbox = cls:cerastes.fmt.Vec4i {
+			}
+			origin = {
+			}
+		}
+
 	}
 	textureFile = "atlases/sprites_tex.png"
 	packMode = enum:cerastes.fmt.PackMode.MaxRects

@@ -7,16 +7,36 @@ import cerastes.flow.Flow;
 /**
  * Puts text on the screen
  */
- class DialogueNode extends FlowNode
+ @:build(cerastes.macros.Callbacks.CallbackGenerator.build())
+ @:structInit class DialogueNode extends FlowNode
  {
-	 @editor("Dialogue","StringMultiline")
-	 public var dialogue: String;
+	/**
+	 * Dialogue nodes in the flow file are the canonical english versions.
+	 *
+	 * for localization, we load a patch file which will lookup nodes by id
+	 * so it's important we do our best to avoid changing node IDs once
+	 * localization begins!
+	 */
+	@editor("Dialogue","StringMultiline")
+	public var dialogue: String;
 
-	 public override function process( runner: FlowRunner )
-	 {
-		Utils.info( 'Dialogue: ${dialogue}' );
-		nextAll(runner);
-	 }
+	public function getLocalizedDialoge()
+	{
+		// @todo: actually hook this up
+		return dialogue;
+	}
+
+
+	public override function process( runner: FlowRunner )
+	{
+		var handled = onDialogue( this, runner );
+
+		if( !handled )
+			nextAll( runner );
+	}
+
+	@:callbackStatic
+	public static function onDialogue( node: DialogueNode, runner: FlowRunner );
 
 	 #if hlimgui
 	 static final d: NodeDefinition = {

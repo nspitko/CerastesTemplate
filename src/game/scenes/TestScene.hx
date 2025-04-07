@@ -1,6 +1,7 @@
 package game.scenes;
 
 
+import game.entities.Bash;
 import h2d.Camera;
 import cerastes.Scene.UIScene;
 import h2d.Object;
@@ -15,7 +16,7 @@ import echo.util.Debug;
 
 
 @:keep
-class TestScene extends UIScene
+class TestScene extends LDScene
 {
 	var debug: HeapsDebug;
 
@@ -24,6 +25,7 @@ class TestScene extends UIScene
 	@:obj var txtOxygen: h2d.Text;
 	@:obj var txtFloor: h2d.Text;
 	@:obj var txtGold: h2d.Text;
+	@:obj var txtBash: h2d.Text;
 
 	public var scrollRoot: h2d.Object;
 
@@ -87,15 +89,17 @@ class TestScene extends UIScene
 		}
 
 		txtOxygen.formatLoc( Std.string( Math.floor( GameState.player.oxygen ) ) );
-		txtGold.formatLoc( Std.string( GameState.player.gold ) );
+		txtGold.formatLoc( Std.string( GameState.gold ) );
 		txtFloor.formatLoc( Std.string( GameState.floor ) );
+		txtBash.formatLoc( Std.string( Bash.charges ) );
+
+		if( showDebug )
+			debug.draw(Main.world);
 
 		if( hxd.Key.isPressed( Key.NUMBER_9 ) )
 		{
 			showDebug = !showDebug;
-			if( showDebug )
-				debug.draw(Main.world);
-			else
+			if( !showDebug )
 				debug.clear();
 		}
 

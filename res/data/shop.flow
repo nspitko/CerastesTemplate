@@ -1,0 +1,392 @@
+cls:cerastes.flow.FlowFile {
+	version = 1
+	nodes = [
+		cls:cerastes.flow.EntryNode {
+			id = 2
+			pins = {
+				0 = 3
+			}
+			editorData = {
+				x = 40
+				y = 22
+			}
+		}
+		cls:data.DialogueNode {
+			dialogue = "The shopkeeper clicks his tongue as the diver enters the creaky door.\nShopkeeper: Gold only. No credit. No haggling, if you don't like my prices you can leave.\nHe shoots the diver a glare before returning his focus to a worn out book."
+			id = 4
+			pins = {
+				0 = 5
+				1 = 6
+			}
+			editorData = {
+				x = 968
+				y = 38
+			}
+		}
+		cls:cerastes.flow.LabelNode {
+			labelId = "shop_1"
+			id = 8
+			pins = {
+				0 = 9
+				1 = 10
+			}
+			editorData = {
+				x = 72
+				y = 182
+			}
+		}
+		cls:cerastes.flow.ConditionNode {
+			conditions = [
+				"shop_stage == 0"
+				"shop_stage == 1"
+				"shop_stage == 2"
+				"shop_stage == 3"
+				"shop_stage == 4"
+			]
+			id = 7
+			pins = {
+				0 = 12
+				1 = 13
+				2 = 16
+				3 = 22
+				4 = 46
+				5 = 65
+				6 = 84
+			}
+			editorData = {
+				x = 312
+				y = 22
+			}
+		}
+		cls:cerastes.flow.InstructionNode {
+			instruction = "shop_stage = 1"
+			id = 18
+			pins = {
+				0 = 19
+				1 = 20
+			}
+			editorData = {
+				x = 680
+				y = 38
+			}
+		}
+		cls:cerastes.flow.ConditionNode {
+			conditions = [
+				"gold > 25"
+			]
+			id = 27
+			pins = {
+				0 = 28
+				1 = 29
+				2 = 32
+			}
+			editorData = {
+				x = 968
+				y = 155
+			}
+		}
+		cls:data.DialogueNode {
+			dialogue = "The shopkeeper gives the diver a disinterested nod as they enter.\nShopkeeper: Buy a spare oxygen tank if you want to get anywhere down there\nHe nudges a worn out looking tank to his left. \nThe price is damn near criminal.\n"
+			id = 33
+			pins = {
+				0 = 34
+				1 = 35
+			}
+			editorData = {
+				x = 1256
+				y = 155
+			}
+		}
+		cls:data.DialogueNode {
+			dialogue = "The shopkeeper sighs as the diver returns empty handed\nShopkeeper: Prices are firm. Earn some coin or go somewhere else\nThe diver is well aware that there are no other shops around here."
+			id = 37
+			pins = {
+				0 = 38
+				1 = 39
+			}
+			editorData = {
+				x = 1256
+				y = 267
+			}
+		}
+		cls:cerastes.flow.InstructionNode {
+			instruction = "shop_stage = 2"
+			id = 41
+			pins = {
+				0 = 42
+				1 = 43
+			}
+			editorData = {
+				x = 680
+				y = 166
+			}
+		}
+		cls:cerastes.flow.ConditionNode {
+			conditions = [
+				"floor > 2"
+			]
+			id = 47
+			pins = {
+				0 = 48
+				1 = 49
+				2 = 52
+			}
+			editorData = {
+				x = 680
+				y = 379
+			}
+		}
+		cls:data.DialogueNode {
+			dialogue = "As the diver hands over today's haul, the shopkeeper's attitude takes a sudden shift\nShopkeeper: Ah... figured. \nHe gently covers one of the items the diver recovered with a cloth and sets it behind the counter.\nShopkeeper: That one had promise. Bright eyes, came back every day like clockwork.\nShopkeeper: He always reckoned the deep would swallow him some day.\nThe shopkeeper goes quiet and sits back down.\nShopkeeper: Happens all the time. None of the fools diving these pits ever make it.\n"
+			id = 53
+			pins = {
+				0 = 54
+				1 = 55
+			}
+			editorData = {
+				x = 1224
+				y = 390
+			}
+		}
+		cls:cerastes.flow.InstructionNode {
+			instruction = "shop_stage = 3"
+			id = 57
+			pins = {
+				0 = 58
+				1 = 59
+			}
+			editorData = {
+				x = 968
+				y = 390
+			}
+		}
+		cls:data.DialogueNode {
+			dialogue = "The shopkeeper's grumpy face greets the diver. She takes some solace in this rigid consistency."
+			id = 61
+			pins = {
+				0 = 62
+				1 = 63
+			}
+			editorData = {
+				x = 968
+				y = 518
+			}
+		}
+		cls:cerastes.flow.ConditionNode {
+			conditions = [
+				"floor > 3"
+			]
+			id = 66
+			pins = {
+				0 = 67
+				1 = 68
+				2 = 71
+			}
+			editorData = {
+				x = 680
+				y = 646
+			}
+		}
+		cls:data.DialogueNode {
+			dialogue = "The shopkeeper lets out a veiled sigh as the diver returns to the shop.\nShopkeeper: Late.\nShopkeeper: Every damn time. They show up every day, like clockwork, until they don't.\nShopkeeper: How deep did you go? Ain't it far enough? What's worth dying for in that abyss\nThe diver, stunned by the shopkeeper's sudden interest, stares blankly for a moment.\nDiver: I have unfinished business.\nShopkeeper: That 'Business' of yours worth dyin' for?\nThe diver gives a meaningful nod.\nShopkeeper: Feh. Have it your way. Next tankmonkey that marches in here'll be returning your gear.\nHe loudly returns to his usual chair before burying his face in the same book as always"
+			id = 72
+			pins = {
+				0 = 73
+				1 = 74
+			}
+			editorData = {
+				x = 1208
+				y = 646
+			}
+		}
+		cls:cerastes.flow.InstructionNode {
+			instruction = "shop_stage = 4"
+			id = 76
+			pins = {
+				0 = 77
+				1 = 78
+			}
+			editorData = {
+				x = 968
+				y = 646
+			}
+		}
+		cls:data.DialogueNode {
+			dialogue = "The diver takes comfort knowing the shopkeeper is there to scowl at them every night, right on time."
+			id = 80
+			pins = {
+				0 = 81
+				1 = 82
+			}
+			editorData = {
+				x = 968
+				y = 774
+			}
+		}
+		cls:data.DialogueNode {
+			dialogue = "Shopkeeper: You sure that thing you're after's even down there?\nDiver: Dunno.\nShopkeeper: What floor?\nDiver: Dunno.\nShopkeeper: Do you even know which ruin it's in?\nDiver: Nah.\nThe shopkeeper's left speechless.\nDiver: It's out there though. I know it. I can feel it getting closer with each dive.\nThe diver pauses for a moment and gathers their words\nDiver: ....It's something I have to do.\nThe shopkeeper holds his tongue. He can feel the weight of the diver's conviction."
+			id = 85
+			pins = {
+				0 = 86
+				1 = 87
+			}
+			editorData = {
+				x = 1240
+				y = 966
+			}
+		}
+		cls:cerastes.flow.ConditionNode {
+			conditions = [
+				"floor > 4"
+			]
+			id = 89
+			pins = {
+				0 = 90
+				1 = 91
+				2 = 94
+			}
+			editorData = {
+				x = 680
+				y = 955
+			}
+		}
+		cls:data.DialogueNode {
+			dialogue = "The shopkeeper's stony glare fills the diver with determination."
+			id = 96
+			pins = {
+				0 = 97
+				1 = 98
+			}
+			editorData = {
+				x = 984
+				y = 1094
+			}
+		}
+		cls:cerastes.flow.InstructionNode {
+			instruction = "shop_stage = 5"
+			id = 100
+			pins = {
+				0 = 101
+				1 = 102
+			}
+			editorData = {
+				x = 984
+				y = 966
+			}
+		}
+		cls:data.DialogueNode {
+			dialogue = "The shopkeeper doesn't want to talk."
+			id = 104
+			pins = {
+				0 = 105
+				1 = 106
+			}
+			editorData = {
+				x = 664
+				y = 1270
+			}
+		}
+	]
+	links = [
+		{
+			id = 15
+			sourceId = 3
+			destId = 12
+		}
+		{
+			id = 36
+			sourceId = 29
+			destId = 34
+		}
+		{
+			id = 40
+			sourceId = 32
+			destId = 38
+		}
+		{
+			id = 51
+			sourceId = 22
+			destId = 48
+		}
+		{
+			id = 64
+			sourceId = 52
+			destId = 62
+		}
+		{
+			id = 70
+			sourceId = 46
+			destId = 67
+		}
+		{
+			id = 83
+			sourceId = 71
+			destId = 81
+		}
+		{
+			id = 93
+			sourceId = 65
+			destId = 90
+		}
+		{
+			id = 99
+			sourceId = 94
+			destId = 97
+		}
+		{
+			id = 107
+			sourceId = 84
+			destId = 105
+		}
+		{
+			id = 11
+			sourceId = 13
+			destId = 19
+		}
+		{
+			id = 14
+			sourceId = 20
+			destId = 5
+		}
+		{
+			id = 17
+			sourceId = 16
+			destId = 42
+		}
+		{
+			id = 21
+			sourceId = 43
+			destId = 28
+		}
+		{
+			id = 23
+			sourceId = 49
+			destId = 58
+		}
+		{
+			id = 24
+			sourceId = 59
+			destId = 54
+		}
+		{
+			id = 25
+			sourceId = 68
+			destId = 77
+		}
+		{
+			id = 26
+			sourceId = 78
+			destId = 73
+		}
+		{
+			id = 30
+			sourceId = 91
+			destId = 101
+		}
+		{
+			id = 31
+			sourceId = 102
+			destId = 86
+		}
+	]
+}

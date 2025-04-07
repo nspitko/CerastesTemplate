@@ -51,7 +51,9 @@ class GrapplingHook extends Ability
 				radius: radius
 			},
 			kinematic: true
-			});
+		});
+
+		Utils.assert( Level.collision != null  );
 
 		var b = new Bitmap( hxd.Res.textures.editor.__TB_empty.toTile(), this );
 		b.x  = -8;
@@ -120,7 +122,7 @@ class GrapplingHook extends Ability
 	}
 
 
-	public function shoot( ?targetEntity: EchoObject, ?targetPosition: Vec2 )
+	public function shoot( ?targetEntity: EchoEntity, ?targetPosition: Vec2 )
 	{
 		targetEnt = null;
 		// Ensure only one is specified
@@ -154,6 +156,8 @@ class GrapplingHook extends Ability
 			else
 				targetPos = hit.closest.hit;
 		}
+		else
+			targetEnt = targetEntity;
 
 		setState(Shooting);
 	}
@@ -167,8 +171,11 @@ class GrapplingHook extends Ability
 
 	public override function tick( d: Float )
 	{
-		if( body == null )
+		if( owner.isDestroyed() )
+		{
+			destroy();
 			return;
+		}
 
 		stateDuration += d;
 		switch( state )
@@ -242,7 +249,8 @@ class GrapplingHook extends Ability
 				targetEnt.setBodyPos(p);
 
 			case Finish:
-				if( targetEnt == null || stateDuration > 0 )
+				// Adds extra damage frames
+				if( stateDuration > 0.3 )
 				{
 					setState(Reloading);
 				}

@@ -1,5 +1,7 @@
 package game.entities;
 
+import game.modifiers.Modifier.ModifierProperties;
+
 class Ability extends KinematicEntity
 {
 	var owner: KinematicEntity;

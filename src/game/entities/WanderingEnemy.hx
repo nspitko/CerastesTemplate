@@ -42,8 +42,8 @@ class WanderingEnemy extends Enemy
 
 		body = new Body({
 			mass: 1,
-			x: 0,
-			y: 0,
+			x: bx + w / 2,
+			y: by + h / 2,
 			kinematic: true,
 			shape: {
 				type: RECT,
@@ -54,7 +54,7 @@ class WanderingEnemy extends Enemy
 		body.entity = this;
 
 		Main.world.listen( body, Level.collision, {
-			separate: true,
+			separate: false,
 			enter: kinematicVsStaticCollision
 		} );
 	}

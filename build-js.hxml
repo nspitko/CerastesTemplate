@@ -1,0 +1,7 @@
+build-common.hxml
+
+-lib stb_ogg_sound
+
+-js dist/main.js
+
+-dce full

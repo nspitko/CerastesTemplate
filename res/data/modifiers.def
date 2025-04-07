@@ -1,0 +1,91 @@
+cls:game.modifiers.ModifierFile
+{
+	modifiers = {
+		oxygen_tank_1 = cls:game.modifiers.ModifierDef {
+			add = [
+				{
+					stat = enum:game.modifiers.ModifierStat.OxygenTotal
+					val = 10
+				}
+			]
+			cost = 25
+		}
+		oxygen_tank_2 = cls:game.modifiers.ModifierDef {
+			add = [
+				{
+					stat = enum:game.modifiers.ModifierStat.OxygenTotal
+					val = 15
+				}
+			]
+			cost = 45
+			prerequisite = "oxygen_tank_1"
+		}
+		oxygen_tank_3 = cls:game.modifiers.ModifierDef {
+			add = [
+				{
+					stat = enum:game.modifiers.ModifierStat.OxygenTotal
+					val = 20
+				}
+			]
+			cost = 65
+			prerequisite = "oxygen_tank_2"
+		}
+		oxygen_efficieny_1 = cls:game.modifiers.ModifierDef {
+			mul = [
+				{
+					stat = enum:game.modifiers.ModifierStat.OxygenRate
+					val = 0.85
+				}
+			]
+			cost = 50
+			//prerequisite = "oxygen_tank_2"
+		}
+		oxygen_efficieny_2 = cls:game.modifiers.ModifierDef {
+			mul = [
+				{
+					stat = enum:game.modifiers.ModifierStat.OxygenRate
+					val = 0.85
+				}
+			]
+			cost = 100
+			prerequisite = "oxygen_efficieny_1"
+		}
+		oxygen_efficieny_3 = cls:game.modifiers.ModifierDef {
+			mul = [
+				{
+					stat = enum:game.modifiers.ModifierStat.OxygenRate
+					val = 0.8
+				}
+			]
+			cost = 150
+			prerequisite = "oxygen_efficieny_2"
+		}
+		bash_charges_1 = cls:game.modifiers.ModifierDef {
+			add = [
+				{
+					stat = enum:game.modifiers.ModifierStat.BashCharges
+					val = 1
+				}
+			]
+			cost = 65
+		}
+		grappling_hook = cls:game.modifiers.ModifierDef {
+			flags = 1 // Grappling hook flag
+			cost = 250
+		}
+		grappling_hook_cd_1 = cls:game.modifiers.ModifierDef {
+			mul = [
+				{
+					stat = enum:game.modifiers.ModifierStat.HookCooldown
+					val = 0.9
+				}
+			]
+			prerequisite = "grappling_hook"
+			cost = 50
+		}
+		bash_oxygen = cls:game.modifiers.ModifierDef {
+			flags = 2
+			cost = 115
+		}
+	}
+}

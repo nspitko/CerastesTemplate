@@ -1,5 +1,6 @@
 package game.entities;
 
+import game.modifiers.Modifier.ModifierFlags;
 import echo.data.Data.CollisionData;
 import echo.Body;
 
@@ -8,6 +9,16 @@ class Enemy extends KinematicEntity
 	var hp: Int = 1;
 	public var oxygen = 1;
 	var touchTimer: Float = 0;
+	var damageTimer: Float = 0;
+	var bx: Int;
+	var by: Int;
+
+	public function new(x: Int, y: Int, ?parent)
+	{
+		bx = x;
+		by = y;
+		super(parent);
+	}
 
 	public function takeDamage( amt: Int )
 	{
@@ -18,7 +29,8 @@ class Enemy extends KinematicEntity
 
 	function die()
 	{
-		GameState.player.oxygen += oxygen;
+		if( ( GameState.player.modifierProp.flags & ModifierFlags.AbilityBashOxygen ) != 0 )
+			GameState.player.oxygen += oxygen;
 		destroy();
 	}
 

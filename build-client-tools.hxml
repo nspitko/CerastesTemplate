@@ -3,6 +3,12 @@ build-common.hxml
 -lib hlimgui
 -lib binpacking
 
+-cp haxe_modules/hashlink/libs/sdl
+-D hlsdl=1.15.0
+
+-D hlopenal=1.4.0
+-cp haxe_modules/hashlink/libs/openal
+
 -hl bin/main_tools.hl
 
 -D tools

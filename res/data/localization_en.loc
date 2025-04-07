@@ -8,8 +8,34 @@ cls: cerastes.LocalizationFile
 		ui_oxygen = "Oxygen: %1"
 		ui_floor = "Floor: %1"
 		ui_gold = "Gold: %1"
+		ui_charges = "Bash Charges: %1"
+
+		shop_gold = "Credits: %1"
 
 		titlecard_floor = "The %1 floor"
+
+		// modifiers
+		oxygen_tank_1 = "Spare Oxygen Tank"
+		oxygen_tank_2 = "High pressure valves"
+		oxygen_tank_3 = "Tank extension"
+		oxygen_efficieny_1 = "Oxygen recycler"
+		oxygen_efficieny_2 = "Nitrox gas"
+		oxygen_efficieny_3 = "Trimix gas"
+		bash_charges_1 = "Robust Shield"
+		grappling_hook = "Grappling Hook"
+		grappling_hook_desc = "Right click to fire a grappling hook at an enemy!"
+		grappling_hook_cd_1 = "Greased Servos"
+		bash_oxygen = "Vampiric Spike"
+		bash_oxygen_desc = "Recover a small amount of oxygen when killing enemies with bash"
+
+		// modifier stats
+		stat_OxygenTotal = "Oxygen"
+		stat_OxygenRate = "Oxygen Consumption"
+		stat_Speed = "Speed"
+		stat_HookCooldown = "Hook Cooldown"
+		stat_BashCooldown = "Bash Cooldown"
+		stat_BashDuration = "Bash Duration"
+		stat_BashCharges = "Bash Charges"
 
 	}
 }

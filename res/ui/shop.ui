@@ -4,8 +4,18 @@ cls:cerastes.fmt.CUIFile {
 		type = "h2d.Object"
 		name = "root"
 		children = [
+			cls:cerastes.fmt.CUIBitmap {
+				tile = "#FFFFFF"
+				width = 1280
+				height = 720
+				color = -16777216
+				smooth = -1
+				type = "h2d.Bitmap"
+				name = "Bitmap 3"
+				blendMode = enum:h2d.BlendMode.Alpha
+			}
 			cls:cerastes.fmt.CUIText {
-				text = "The shop"
+				text = "Cavern's Creek junk shop"
 				font = "fnt/kodenmanhou16.fnt"
 				textAlign = enum:h2d.Align.Left
 				smooth = -1
@@ -43,43 +53,111 @@ cls:cerastes.fmt.CUIFile {
 				verticalAlign = enum:h2d.FlowAlign.Top
 				horizontalAlign = enum:h2d.FlowAlign.Left
 				overflow = enum:h2d.FlowOverflow.Limit
+				maxWidth = 1021
+				horizontalSpacing = 50
+				verticalSpacing = 30
 				smooth = -1
 				type = "h2d.Flow"
-				name = "Flow 1"
+				name = "flow_buttons"
 				children = [
-					cls:cerastes.fmt.CUIObject {
-						type = "h2d.Object"
-						name = "Object 1"
-						children = [
-							cls:cerastes.fmt.CUIButton {
-								text = "test - Oxygen upgrade"
-								bitmapMode = enum:cerastes.ui.BitmapMode.ButtonTile
-								buttonMode = enum:cerastes.ui.ButtonType.Momentary
-								tweenModeHover = enum:cerastes.ui.ButtonHoverTween.None
-								tweenModeUnHover = enum:cerastes.ui.ButtonHoverTween.None
-								orientation = enum:cerastes.ui.Orientation.None
-								layout = enum:h2d.FlowLayout.Horizontal
-								verticalAlign = enum:h2d.FlowAlign.Top
-								horizontalAlign = enum:h2d.FlowAlign.Left
-								overflow = enum:h2d.FlowOverflow.Limit
-								paddingBottom = 4
-								smooth = -1
-								type = "cerastes.ui.Button"
-								name = "btn_test_oxygen"
-								scaleX = 2
-								scaleY = 2
-								blendMode = enum:h2d.BlendMode.Alpha
-							}
-						]
+					cls:cerastes.fmt.CUIReference {
+						file = "ui/shop_button.ui"
+						type = "cerastes.ui.Reference"
+						name = "ref_button"
 						blendMode = enum:h2d.BlendMode.Alpha
 					}
 				]
 				x = 140
-				y = 130
+				y = 138
+				blendMode = enum:h2d.BlendMode.Alpha
+			}
+			cls:cerastes.fmt.CUIText {
+				text = "#shop_gold"
+				font = "fnt/kodenmanhou16.fnt"
+				textAlign = enum:h2d.Align.Left
+				smooth = -1
+				type = "h2d.Text"
+				name = "txt_gold"
+				x = 430
+				y = 81
+				scaleX = 2
+				scaleY = 2
+				blendMode = enum:h2d.BlendMode.Alpha
+			}
+			cls:cerastes.fmt.CUIObject {
+				type = "h2d.Object"
+				name = "ctn_dialogue"
+				children = [
+					cls:cerastes.fmt.CUIBitmap {
+						tile = "#FFFFFF"
+						width = 900
+						height = 150
+						color = -11382190
+						smooth = -1
+						type = "h2d.Bitmap"
+						name = "Bitmap 2"
+						children = [
+							cls:cerastes.fmt.CUIText {
+								text = "Weather's shit, eh?"
+								font = "fnt/kodenmanhou16.fnt"
+								textAlign = enum:h2d.Align.Left
+								maxWidth = 860
+								smooth = -1
+								type = "h2d.Text"
+								name = "txt_dialogue"
+								x = 17
+								y = 20
+								blendMode = enum:h2d.BlendMode.Alpha
+							}
+						]
+						x = 70
+						y = 520
+						blendMode = enum:h2d.BlendMode.Alpha
+					}
+					cls:cerastes.fmt.CUIText {
+						text = "Chip"
+						font = "fnt/kodenmanhou16.fnt"
+						textAlign = enum:h2d.Align.Left
+						smooth = -1
+						type = "h2d.Text"
+						name = "txt_speaker"
+						x = 76
+						y = 487
+						scaleX = 2
+						scaleY = 2
+						blendMode = enum:h2d.BlendMode.Alpha
+					}
+				]
+				blendMode = enum:h2d.BlendMode.Alpha
+			}
+			cls:cerastes.fmt.CUIInteractive {
+				cursor = enum:hxd.Cursor.Default
+				width = 1280
+				height = 720
+				smooth = -1
+				type = "h2d.Interactive"
+				name = "int_dialogue"
 				blendMode = enum:h2d.BlendMode.Alpha
 			}
 		]
 		blendMode = enum:h2d.BlendMode.Alpha
 	}
-	timelines = []
+	timelines = [
+		cls:cerastes.ui.Timeline {
+			operations = [
+				cls:cerastes.ui.TimelineOperation {
+					target = "ctn_dialogue"
+					key = "y"
+					value = 400
+					hasInitialValue = true
+					duration = 10
+					type = 101
+				}
+			]
+			frames = 10
+			frameRate = 30
+			variables = []
+			name = "dialogue_complete"
+		}
+	]
 }

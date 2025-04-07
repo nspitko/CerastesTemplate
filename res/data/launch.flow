@@ -12,8 +12,8 @@ cls:cerastes.flow.FlowFile {
 			}
 		}
 		cls:cerastes.flow.SceneNode {
-			//scene = "game.scenes.TestScene"
-			scene = "game.scenes.TitlecardScene"
+			scene = "game.scenes.TestScene"
+			//scene = "game.scenes.TitlecardScene"
 			id = 3
 			pins = {
 				0 = 4

@@ -28,17 +28,24 @@ class Bash extends Ability
 	var sensor: echo.Body;
 	var effect: Bitmap;
 	var hitBodies: Array<echo.Body>;
-	final reloadSpeed = 1;
 
-	final bashDuration = 0.5;
+	var reloadSpeed(get, null): Float = 2;
+	var bashDuration(get, null): Float = 0.5;
+	public static var charges: Int = 3;
+	var chargesMax(get, null): Int = 3;
+
+	function get_reloadSpeed() { return owner.modifierProp.modifyFloat( reloadSpeed, HookCooldown ); }
+	function get_bashDuration() { return owner.modifierProp.modifyFloat( bashDuration, BashDuration ); }
+	function get_chargesMax() { return owner.modifierProp.modifyInt( chargesMax, BashCharges ); }
+
+	var reloadTimer: Float = 0;
+	final radius = 45;
 
 	public override function createBody()
 	{
-		final radius = 45;
-
 		body = new Body({
 			mass: 1,
-			x: -500,
+			x: -500, // Dumb hack to fix bug where this would push static geo away at spawn
 			y: -500,
 			shape: {
 				type: CIRCLE,
@@ -47,6 +54,11 @@ class Bash extends Ability
 			kinematic: true
 			});
 
+		Utils.assert( Level.collision != null  );
+	}
+
+	public override function init()
+	{
 		effect = new Bitmap( hxd.Res.textures.editor.__TB_empty.toTile(), this );
 		effect.x  = -radius;
 		effect.y  = -radius;
@@ -58,7 +70,7 @@ class Bash extends Ability
 		effect.visible = false;
 
 
-		Utils.assert( Level.collision != null  );
+		charges = chargesMax;
 	}
 
 	function onBashTouch(a: Body, b: Body, ca: Array<CollisionData>)
@@ -75,25 +87,44 @@ class Bash extends Ability
 
 	public function bash(targetPos: Vec2 )
 	{
-		if( state == Idle )
+
+		if( charges == chargesMax )
+			reloadTimer = 0;
+
+		charges--;
+
+		setState(Bashing);
+
+		var p: Player = cast owner;
+		if( p.hook.state == Idle )
 		{
-			setState(Bashing);
-
-			var p: Player = cast owner;
-			if( p.hook.state == Idle )
-			{
-				var start = new Vec2(owner.x, owner.y);
-				var dir = ( targetPos - start ).normalized();
-				owner.setVelocity( dir * 600 );
-			}
-
-
+			var start = new Vec2(owner.x, owner.y);
+			var dir = ( targetPos - start ).normalized();
+			owner.setVelocity( dir * 750 );
 		}
+
+
+
 	}
 
 	public override function tick( d: Float )
 	{
+		if( owner.isDestroyed() )
+		{
+			destroy();
+			return;
+		}
+
+
 		stateDuration += d;
+		reloadTimer += d;
+
+		if( reloadTimer > reloadSpeed && charges < chargesMax )
+		{
+			charges++;
+			reloadTimer = 0;
+		}
+
 		switch( state )
 		{
 			case Idle:
@@ -104,7 +135,7 @@ class Bash extends Ability
 
 				var targets = EchoObject.bodies[BodyGroup.Enemy];
 
-				Main.world.check( body, targets, { enter: onBashTouch } );
+				Main.world.check( body, targets, {separate: false, enter: onBashTouch } );
 
 				if( stateDuration > bashDuration )
 					setState( Reloading );
@@ -129,7 +160,14 @@ class Bash extends Ability
 		state = newState;
 		switch( newState )
 		{
-			case Idle | Reloading:
+			case Reloading:
+				effect.visible = false;
+
+				if( charges > 0 )
+					setState(Idle);
+
+
+			case Idle:
 				effect.visible = false;
 
 			case Bashing:
@@ -147,7 +185,7 @@ class Bash extends Ability
 
 	public override function ready()
 	{
-		return state == Idle;
+		return charges > 0;
 	}
 
 }

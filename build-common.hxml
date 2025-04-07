@@ -1,12 +1,8 @@
 -cp src
 -cp haxe_modules/hashlink/libs/fmt
 -D fmt=1.15.0
--cp haxe_modules/hashlink/libs/openal
--D hlopenal=1.4.0
--cp haxe_modules/tweenx/src/tweenxcore
 
--cp haxe_modules/hashlink/libs/sdl
--D hlsdl=1.15.0
+-cp haxe_modules/tweenx/src/tweenxcore
 
 #-cp haxe_modules/hashlink/libs/directx
 #-D hldx=1.15.0

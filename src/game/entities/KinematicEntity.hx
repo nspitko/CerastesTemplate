@@ -1,5 +1,6 @@
 package game.entities;
 
+import game.modifiers.Modifier.ModifierProperties;
 import cerastes.c2d.Vec2;
 import echo.data.Data.CollisionData;
 import echo.Body;
@@ -18,6 +19,7 @@ class KinematicEntity extends EchoEntity
 
 			var tangent = new Vec2(-c.normal.y, c.normal.x);
 
+			/*
 			// Decompose
 			var vNormal: Vec2 = c.normal * velocity.dot( c.normal );
 			var vTangent: Vec2 = tangent * velocity.dot( tangent );
@@ -25,8 +27,8 @@ class KinematicEntity extends EchoEntity
 			var restitutionNormal: Vec2 = vNormal * -0.01;
 
 			velocity = vTangent + restitutionNormal;
-
-			//velocity = tangent * velocity.dot(tangent);
+			*/
+			velocity = tangent * velocity.dot(tangent);
 		}
 	}
 

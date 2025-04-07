@@ -1,5 +1,6 @@
 package game.entities;
 
+import game.modifiers.Modifier.ModifierProperties;
 import cerastes.Entity;
 
 class EchoEntity extends EchoObject implements Entity
@@ -9,10 +10,16 @@ class EchoEntity extends EchoObject implements Entity
 
 	public var initialized(get, never): Bool;
 	var destroyed = false;
+	public var modifierProp: ModifierProperties = new ModifierProperties();
 
 	function get_initialized()
 	{
 		return true;
+	}
+
+	public function hasModifier(k: String )
+	{
+		return modifierProp.hasModifier(k);
 	}
 
 	public function new( ?parent  )

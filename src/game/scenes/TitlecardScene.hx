@@ -1,6 +1,7 @@
 package game.scenes;
 
 
+import cerastes.SoundManager;
 import h2d.Camera;
 import cerastes.Scene.UIScene;
 import h2d.Object;
@@ -15,7 +16,7 @@ import echo.util.Debug;
 
 
 @:keep
-class TitlecardScene extends UIScene
+class TitlecardScene extends LDScene
 {
 	@:obj var txtFloor: h2d.Text;
 	@:obj var txtCityName: h2d.Text;
@@ -35,6 +36,8 @@ class TitlecardScene extends UIScene
 		txtCityName.text = GameState.level.generateName();
 
 		super.enter();
+
+		SoundManager.play("titlecard_jingle");
 
 
 

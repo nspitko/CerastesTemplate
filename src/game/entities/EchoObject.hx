@@ -56,11 +56,18 @@ class EchoObject extends h2d.Object
 	inline function setBodyPos( p: Vec2 )
 	{
 		// AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+		#if hl
 		if( Math.isNaN( p.x ) || Math.isNaN( p.y ) )
 			hl.Api.breakPoint();
+		#end
 
 		body.x = p.x;
 		body.y = p.y;
+	}
+
+	inline function getBodyPos()
+	{
+		return new Vec2( body.x, body.y );
 	}
 
 	function setTilePos( p: Vec2 )
